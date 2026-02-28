@@ -15,6 +15,7 @@ done
 echo "${simb_array[@]}"
 }
 
+
 function generate_name() {
 chars_in_name=$2
 simbs_array=($(create_arr $2))
@@ -30,9 +31,24 @@ new_name=""
         done
     fi
     done
+    # Добивка до минимальной длины 
+    while [ ${#new_name} -lt 4 ]; do
+        local repeat_simb=${simbs_array[$index_arr]}
+        # Ищем позицию символа в new_name и вставляем после него
+        local inserted=0
+        local tmp_name=""
+        for (( j=0; j<${#new_name}; j++ )); do
+            tmp_name+="${new_name:$j:1}"
+            if [ $inserted -eq 0 ] && [ "${new_name:$j:1}" = "$repeat_simb" ]; then
+                tmp_name+="$repeat_simb"
+                inserted=1
+            fi
+        done
+        new_name="$tmp_name"
+    done
+
     echo "$new_name"
 }
-
 function create_folders { 
 
     new_fo=$(generate_name $i $folders_names)

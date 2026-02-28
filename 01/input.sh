@@ -60,5 +60,5 @@ if [[ ! "$file_size" =~ ^^[1-9][0-9]?kb$|^100kb$ ]] ; then
 echo -e "\e[91mError. Invalid parameters: "$file_size"\e[0m"
 exit 1
 else
-file_size=${file_size%?}
+file_size=${file_size%??}
 fi
