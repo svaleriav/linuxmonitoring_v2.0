@@ -1,5 +1,5 @@
 #!/bin/bash
-source funcs.sh
+source func.sh
 
 if [ $# != 0 ]; then
 	echo "Параметры не допускаются"

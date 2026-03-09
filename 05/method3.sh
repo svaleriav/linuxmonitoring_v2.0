@@ -1,13 +1,13 @@
 #!/bin/bash
 
-declare -x boba=""
-declare -x buba=""
+declare -x code=""
+declare -x ErrorCode=""
 
 while read -r line
 do
-        boba="$(echo $line | awk '{print $8}')"
-        buba=${boba:0:1}
-        if [ $buba == "5" ] || [ $buba == "4" ];
+        code="$(echo $line | awk '{print $8}')"
+        ErrorCode=${code:0:1}
+        if [ $ErrorCode == "5" ] || [ $ErrorCode == "4" ];
         then
                 echo $line
         fi

@@ -55,7 +55,7 @@ function file_naming {
         echo $tmp
 }
 
-blob="$(sudo find / -wholename *02/check.sh)"
+blob="$(dirname "$0")/check.sh"
 check=$(bash "${blob}" $@)
 
 if [[ $check != 0 ]]; then
