@@ -1,5 +1,5 @@
 #!/bin/bash
-source func.sh
+source check.sh
 
 if [[ $# != 1 ]]; then
         echo "Ожидается только 1 параметр!!!!"
